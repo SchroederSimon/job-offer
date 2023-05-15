@@ -25,7 +25,8 @@
 
 .card-header img{
     border-radius: 50%;
-    width:50%;
+    width:40%;
+    margin-bottom: 20px;
 }
 
 .card-extra-information{
