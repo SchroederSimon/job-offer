@@ -1,5 +1,7 @@
 import './App.css'
 import Card from './components/Card'
+import Register from './pages/Register'
+import Login  from './pages/Login'
 
 function App() {
 
@@ -26,6 +28,10 @@ function App() {
       <main>
         <Card></Card>
       </main>
+
+      <Register/>
+      <Login/>
+
     </>
 
   )
