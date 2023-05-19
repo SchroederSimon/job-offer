@@ -1,39 +1,63 @@
-.card{
+.card {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-   
     width: 100%;
     gap: 20px;
+    height: auto;
+
 }
 
-.card-container{
-    background-color: gray;
+/* Card with colors based on level */
+.card-container {
     border-radius: 10px;
-    padding: 2%;
+    padding: 3%;
+}
+.card-trainee {
+    background-color: var(--colorYellowTrainee);
+}
+
+.card-junior {
+    background-color: var(--colorPurpleJunior);
+}
+
+.card-semi-senior {
+    background-color: var(--colorGreenSemiSenior);
+}
+
+.card-senior {
+    color: var(--colorWhiteFont);
+    background-color: var(--colorBlackSenior);
 }
 
 
-.card-header{
+.card-header {
     gap: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.card-header img{
+.card-header img {
     border-radius: 50%;
-    width:40%;
+    width: 40%;
     margin-bottom: 20px;
 }
 
-.card-extra-information{
-    background-color: black;
+
+.card-extra-information {
     border-radius: 10px;
     gap: 20px;
     padding: 2%;
     display: flex;
     flex-direction: column;
 }
+
+.card-extra-information::before {
+    content: "";
+    display: block;
+    border-top: 1px solid white;
+    margin-bottom: 10px; /* Adjust as needed */
+  }

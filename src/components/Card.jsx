@@ -24,8 +24,10 @@ export default function Cards() {
             <div className="card">
                 {
                     users.map((user) => {
+                        const cardClass = `card-container card-${user.level}`;
                         return (
-                            <div className="card-container" key={user.id}>
+                            
+                            <div className={cardClass} key={user.id}>
                                 <div className="card-header">
                                     <img src="src/assets/unnamed.png" alt="" />
                                     <div className="card-header-information">
@@ -35,10 +37,9 @@ export default function Cards() {
                                     </div>
                                 </div>
                                 <div className="card-extra-information">
-                                    <strong>Level</strong>
+                                    <strong>Level: {user.level}</strong>
                                     <strong>Experience</strong>
                                     <strong>Education</strong>
-                                    <strong>About</strong>
                                 </div>
                             </div>
                         )
