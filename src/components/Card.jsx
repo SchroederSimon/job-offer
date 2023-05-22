@@ -32,8 +32,8 @@ export default function Cards() {
                                     <img src="src/assets/unnamed.png" alt="" />
                                     <div className="card-header-information">
                                         <h2>{user.name}</h2>
-                                        <p>{user.profesion}</p>
-                                        <p>{user.headline}</p>
+                                        <p>{user.profession}</p>
+                                        <p>{user.skills}</p>
                                     </div>
                                 </div>
                                 <div className="card-extra-information">

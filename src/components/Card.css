@@ -3,11 +3,9 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     width: 100%;
     gap: 20px;
-    height: auto;
-
 }
 
 /* Card with colors based on level */
@@ -15,19 +13,19 @@
     border-radius: 10px;
     padding: 3%;
 }
-.card-trainee {
+.card-Trainee {
     background-color: var(--colorYellowTrainee);
 }
 
-.card-junior {
+.card-Junior {
     background-color: var(--colorPurpleJunior);
 }
 
-.card-semi-senior {
+.card-Semi-senior {
     background-color: var(--colorGreenSemiSenior);
 }
 
-.card-senior {
+.card-Senior {
     color: var(--colorWhiteFont);
     background-color: var(--colorBlackSenior);
 }

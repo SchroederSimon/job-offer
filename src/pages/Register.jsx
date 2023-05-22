@@ -3,10 +3,18 @@ import '../pages/Register.css'
 import { createUserWithEmailAndPassword } from "@firebase/auth"
 import { auth, db } from "../services/firebase";
 import { addDoc, collection } from 'firebase/firestore';
+import { Link } from "react-router-dom";
 
 function Register() {
   const [registerEmail, setRegisterEmail] = useState("")
   const [registerPassword, setRegisterPassword] = useState("")
+
+  //Form fields
+  const [registerName, setRegisterName] = useState("")
+  const [registerProfession, setRegisterProfession] = useState("")
+  const [registerSkills, setRegisterSkills] = useState("")
+  const [registerLevel, setRegisterLevel] = useState("Trainee")
+
 
   const handleRegister = async (event) => {
     event.preventDefault();
@@ -15,8 +23,14 @@ function Register() {
       const userCredential = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
       const { user } = userCredential;
 
-      const usersCollectionRef = collection(firestore, 'users');
-      await addDoc(usersCollectionRef, { email: user.email });
+      const usersCollectionRef = collection(db, 'users');
+      await addDoc(usersCollectionRef, {
+        email: user.email,
+        name: registerName,
+        profession: registerProfession,
+        skills: registerSkills,
+        level: registerLevel
+      });
 
       console.log(user);
     } catch (error) {
@@ -35,30 +49,41 @@ function Register() {
           <h1>Tell us a little about you</h1>
           <p>This is an initial information of you, you can change it anytime</p>
         </div>
+
         <div className="inputs-register">
           <div className="input-row">
-            <input type="text" name="email" placeholder="paltamora@gmail.com" value={registerEmail} onChange={(event) => setRegisterEmail(event.target.value)} />
-            <input type="password" name="password" placeholder="Password..." value={registerPassword} onChange={(event) => setRegisterPassword(event.target.value)} />
+            <input type="text" name="email" placeholder="paltamora@gmail.com"
+              value={registerEmail} onChange={(event) => setRegisterEmail(event.target.value)} />
+            <input type="password" name="password" placeholder="*********"
+              value={registerPassword} onChange={(event) => setRegisterPassword(event.target.value)} />
           </div>
+
           <div className="input-row">
-            <input type="text" placeholder="Jon Doe" />
-            <input type="text" placeholder="Front-end developer" />
+            <input type="text" placeholder="Jon Doe"
+              value={registerName} onChange={(event) => setRegisterName(event.target.value)} />
+            <input type="text" placeholder="Front end developer"
+              value={registerProfession} onChange={(event) => setRegisterProfession(event.target.value)} />
           </div>
+
           <div className="input-row">
-            <input type="text" placeholder="HTML5 - CSS3 - TypeScript - NodeJs..." />
-            <select>
-              <option value="option1">Trainee</option>
-              <option value="option2">Junior</option>
-              <option value="option3">Semi-senior</option>
-              <option value="option3">Senior</option>
+            <input type="text" placeholder="HTML5 - CSS3 - TypeScript - NodeJs..."
+              value={registerSkills} onChange={(event) => setRegisterSkills(event.target.value)} />
+            <select
+              value={registerLevel} onChange={(event) => setRegisterLevel(event.target.value)}>
+              <option value="Trainee">Trainee</option>
+              <option value="Junior">Junior</option>
+              <option value="Semi-senior">Semi-senior</option>
+              <option value="Senior">Senior</option>
             </select>
           </div>
         </div>
+
         <div className="register-button">
-          <button><strong>Back</strong></button>
+          <Link to={`/`}><button><strong>Back</strong></button></Link>
           <button type="submit"><strong>Register</strong></button>
         </div>
       </form>
+
       <img src="src/assets/register.png" alt="" />
     </div>
 

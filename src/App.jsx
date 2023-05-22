@@ -1,7 +1,7 @@
 import './App.css'
 import Card from './components/Card'
-import Register from './pages/Register'
-import Login from './pages/Login'
+import { Link } from "react-router-dom";
+
 
 function App() {
 
@@ -15,7 +15,10 @@ function App() {
             <li>HOME</li>
             <li>ABOUT</li>
           </ul>
-          <button>Login</button>
+          <div className="nav-buttons">
+            <Link to={`/login`}><button>Login</button></Link>
+            <Link to={`/register`}><button>Register</button></Link>
+          </div>
         </nav>
 
         <form className='search-bar' action="/buscar" method="GET">
@@ -28,15 +31,8 @@ function App() {
 
         <main>
           <Card></Card>
-
         </main>
       </div>
-
-      <Register />
-      <Login />
-
-
-
     </>
   )
 }
