@@ -13,6 +13,7 @@ import {
 import ErrorPage from "./error-page";
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import Profile from '../src/components/Profile.jsx'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register/>,
+  },
+  {
+    path: "/login/profile/:uid",
+    element: <Profile />,
   }
 ]);
 

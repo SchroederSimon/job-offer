@@ -37,9 +37,9 @@ export default function Cards() {
                                     </div>
                                 </div>
                                 <div className="card-extra-information">
-                                    <strong>Level: {user.level}</strong>
-                                    <strong>Experience</strong>
-                                    <strong>Education</strong>
+                                    <p><span>Level</span>: {user.level}</p>
+                                    <p><span>Experience</span>: 2 years</p>
+                                    <p><span>Education</span>: Bootcamp, Self taught</p>
                                 </div>
                             </div>
                         )
