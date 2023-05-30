@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import '../components/Card.css'
 import { db } from '../services/firebase'
 import { collection, getDocs } from 'firebase/firestore'
+import { Link } from 'react-router-dom';
+
 
 export default function Cards() {
 
@@ -17,7 +19,7 @@ export default function Cards() {
         }
 
         getUsers()
-    }, [])
+    }, [users])
 
     return (
         <>
@@ -25,23 +27,25 @@ export default function Cards() {
                 {
                     users.map((user) => {
                         const cardClass = `card-container card-${user.level}`;
+                        const profileLink = `/profile/${user.id}`;
                         return (
-                            
-                            <div className={cardClass} key={user.id}>
-                                <div className="card-header">
-                                    <img src="src/assets/unnamed.png" alt="" />
-                                    <div className="card-header-information">
-                                        <h2>{user.name}</h2>
-                                        <p>{user.profession}</p>
-                                        <p>{user.skills}</p>
+                            <Link to={profileLink} key={user.id}>
+                                <div className={cardClass}>
+                                    <div className="card-header">
+                                        <img src="src/assets/unnamed.png" alt="" />
+                                        <div className="card-header-information">
+                                            <h2>{user.name}</h2>
+                                            <p>{user.profession}</p>
+                                            <p>{user.skills}</p>
+                                        </div>
+                                    </div>
+                                    <div className="card-extra-information">
+                                        <p><span>Level</span>: {user.level}</p>
+                                        <p><span>Experience</span>: 2 years</p>
+                                        <p><span>Education</span>: Bootcamp, Self taught</p>
                                     </div>
                                 </div>
-                                <div className="card-extra-information">
-                                    <p><span>Level</span>: {user.level}</p>
-                                    <p><span>Experience</span>: 2 years</p>
-                                    <p><span>Education</span>: Bootcamp, Self taught</p>
-                                </div>
-                            </div>
+                            </Link>
                         )
                     })
                 }
