@@ -1,0 +1,69 @@
+.profile-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+}
+/* Left */
+.left-profile{
+    width: 40%;
+    background-color: var(--colorBlackBackground);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.left-profile-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 10px 10px 0 0;
+    gap: 20px;
+}
+.left-profile-container img{
+    padding: 1%;
+    width: 40%;
+    border-radius: 50%;
+}
+.left-profile-information {
+    width: 40%;
+}
+.left-profile-extra-information span{
+    font-weight: 700;
+}
+.left-profile-extra-information ul {
+    color: var(--colorWhiteFont);
+    list-style-type: none;
+  }
+  
+  .left-profile-extra-information li {
+    margin: 40px 0 40px 0;
+  }
+
+  
+/* Color based on level */
+.color-level-Trainee {
+    background-color: var(--colorYellowTrainee);
+}
+
+.color-level-Junior {
+    background-color: var(--colorPurpleJunior);
+}
+
+.color-level-Semi-senior {
+    background-color: var(--colorGreenSemiSenior);
+}
+
+.color-level-Senior {
+    color: var(--colorWhiteFont);
+    background-color: var(--colorBlackSenior);
+}
+
+/* Right */
+.right-profile{
+    width: 50%;
+    background-color: red;
+}
