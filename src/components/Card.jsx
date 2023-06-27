@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, } from 'react'
 import '../components/Card.css'
 import { db } from '../services/firebase'
 import { collection, getDocs } from 'firebase/firestore'
@@ -12,14 +12,13 @@ export default function Cards() {
 
 
     useEffect(() => {
-
         const getUsers = async () => {
             const dataUser = await getDocs(userCollectionRef)
             setUsers(dataUser.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
 
         getUsers()
-    }, [users])
+    }, [userCollectionRef])
 
     return (
         <>

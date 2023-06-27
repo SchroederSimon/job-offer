@@ -1,7 +1,7 @@
 import '../pages/Login.css'
 import { auth } from "../services/firebase";
 import { onAuthStateChanged, signOut, signInWithEmailAndPassword } from "@firebase/auth"
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 function Login() {
@@ -62,16 +62,16 @@ function Login() {
                     </div>
                     <div className="login-extras">
                         <Link><span>Forgot password?</span></Link>
-                        <Link>Don't have an account? <span>Sign up</span></Link>
+                        <Link>Dont have an account? <span>Sign up</span></Link>
                     </div>
                     <div className="login-button">
                         <button type="submit">Login</button>
                     </div>
                 </form>
                 <h1>uSer liog: {user?.email}</h1>
-                    <form onSubmit={logout}>
-                        <button type="submit">Log Out</button>
-                    </form>
+                <form onSubmit={logout}>
+                    <button type="submit">Log Out</button>
+                </form>
                 <div className="login-background">
                     <h1>Discover top talent easily.</h1>
                 </div>
